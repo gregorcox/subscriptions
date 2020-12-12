@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { subscriptions } from "../data/subscriptions";
+import Subscription from "./Subscription";
 import SelectedSubscription from "./SelectedSubscription";
 import { updateSubscription } from '../actions';
 
@@ -18,14 +19,8 @@ const Subscriptions = (props) => {
     }
 
     const options = subscriptions.map((subscription) => {
-        return (
-            <div className="subscription" key={subscription.id}>
-                <h3>{subscription.name}</h3>
-                <p>£{subscription.price}</p>
-                <p>{subscription.description}</p>
-                <button onClick={() => { selectSubscription(subscription)}}>Select</button>
-            </div>
-        );
+        const button = <button onClick={() => { selectSubscription(subscription)}}>Select</button>;
+        return <Subscription subscription={subscription} button={button} />
     });
 
     return (
