@@ -1,11 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { subscriptions } from "../data/subscriptions";
+import { updateSubscription } from '../actions';
 
-const Subscriptions = () => {
+const Subscriptions = (props) => {
+
     const selectSubscription = (subscription) => {
-        // TODO: Store this choice in state
-        console.log(subscription);
+        // Update the state with the selected subscription
+        props.updateSubscription(subscription);
     }
 
     const options = subscriptions.map((subscription) => {
@@ -24,4 +27,16 @@ const Subscriptions = () => {
     )
 }
 
-export default Subscriptions;
+const mapStateToProps = (state) => {
+    return {
+        selectedSubscription: state.subscriptionReducer
+    }
+}
+
+const mapDispatchToProps = () => {
+    return {
+        updateSubscription
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps())(Subscriptions);
