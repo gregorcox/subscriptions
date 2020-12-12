@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form } from "formik";
 
+import Subscriptions from "./Subscriptions";
 import { validateEmail, validatePassword } from "../helpers/validation";
 
 const Login = () => {
     const [isFormSubmitted, submitForm] = useState(false);
 
-    // TODO: Create subscriptions page and render on form submit
+    // Render the subscriptions page once the form has been submitted
     if (isFormSubmitted) {
-        console.log("submitted");
+        return <Subscriptions />
     }
 
     return (
