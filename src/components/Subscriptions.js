@@ -19,12 +19,15 @@ const Subscriptions = (props) => {
     }
 
     const options = subscriptions.map((subscription) => {
-        const button = <button onClick={() => { selectSubscription(subscription)}}>Select</button>;
+        const button = <button onClick={() => { selectSubscription(subscription) }}>Select</button>;
         return <Subscription key={subscription.id} subscription={subscription} button={button} />
     });
 
     return (
-        <div>{options}</div>
+        <>
+            <h1>Your subscription options</h1>
+            {options}
+        </>
     )
 }
 

@@ -10,7 +10,12 @@ const SelectedSubscription = (props) => {
     // Cancel button clears the state of the selected subscription
     const button = <button className="cancel-button" onClick={() => { updateSubscription({}) }}>Cancel Subscription</button>;
 
-    return <Subscription subscription={selectedSubscription} button={button}/>;
+    return (
+        <>
+            <h1>Your selected subscription</h1>
+            <Subscription subscription={selectedSubscription} button={button} />
+        </>
+    );
 }
 
 const mapStateToProps = (state) => {
