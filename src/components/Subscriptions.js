@@ -2,9 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { subscriptions } from "../data/subscriptions";
+import SelectedSubscription from "./SelectedSubscription";
 import { updateSubscription } from '../actions';
 
 const Subscriptions = (props) => {
+
+    // If there is a selected option, show the selected page
+    if (props.selectedSubscription.name) {
+        return <SelectedSubscription />
+    }
 
     const selectSubscription = (subscription) => {
         // Update the state with the selected subscription
