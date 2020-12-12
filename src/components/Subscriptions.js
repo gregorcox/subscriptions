@@ -10,7 +10,7 @@ const Subscriptions = () => {
 
     const options = subscriptions.map((subscription) => {
         return (
-            <div key={subscription.id}>
+            <div className="subscription" key={subscription.id}>
                 <h3>{subscription.name}</h3>
                 <p>£{subscription.price}</p>
                 <p>{subscription.description}</p>

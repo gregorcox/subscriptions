@@ -40,3 +40,13 @@ input {
 .error {
   color: red;
 }
+
+/* Subscriptions */
+
+.subscription {
+  border: 1px solid black;
+  margin: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+}
