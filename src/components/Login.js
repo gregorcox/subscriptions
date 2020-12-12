@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form } from "formik";
 
 import { validateEmail, validatePassword } from "../helpers/validation";
 
 const Login = () => {
+    const [isFormSubmitted, submitForm] = useState(false);
+
+    // TODO: Create subscriptions page and render on form submit
+    if (isFormSubmitted) {
+        console.log("submitted");
+    }
+
     return (
         <div>
             <h1>Login</h1>
              <Formik
                 initialValues={{ email: "", password: "" }}
-                onSubmit={() => { console.log("Submitted") }}
+                onSubmit={() => { submitForm(true) }}
             >
                 {({ errors, touched }) => (
                     <Form>
