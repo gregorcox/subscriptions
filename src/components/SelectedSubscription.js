@@ -1,9 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const SelectedSubscription = () => {
+import { updateSubscription } from '../actions';
+
+const SelectedSubscription = (props) => {
     return (
-        <div>Hello</div>
+        <div className="subscription">
+            <h3>{props.selectedSubscription.name}</h3>
+            <p>£{props.selectedSubscription.price}</p>
+            <p>{props.selectedSubscription.description}</p>
+            <button className="cancel-button" onClick={() => { props.updateSubscription({}) }}>Cancel Subscription</button>
+        </div>
     );
 }
 
-export default SelectedSubscription;
+const mapStateToProps = (state) => {
+    return {
+        selectedSubscription: state.subscriptionReducer
+    }
+}
+
+const mapDispatchToProps = () => {
+    return {
+        updateSubscription
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps())(SelectedSubscription);
